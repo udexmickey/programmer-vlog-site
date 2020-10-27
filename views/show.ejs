@@ -1,0 +1,10 @@
+<%- include("partials/header") %>
+<div class="container  ui fall">
+    <h1>This is the vlog post <a href="/blogs/<%= blog.title %>/edit">Edit Post</a></h1> 
+    <h2><%= blog.title %></h2>
+    <img src="<%= blog.image %>">
+    <p><%= blog.created %></p>
+    <p><%= blog.body %></p>
+</div>
+
+<%- include("partials/footer") %>

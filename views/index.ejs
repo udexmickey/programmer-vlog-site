@@ -1,0 +1,21 @@
+<%- include("partials/header") %>
+
+<!-- <h1>This is the testing site</h1> -->
+<div class="container  ui fall">
+    <% blogs.forEach((blog)=>{ %>
+        
+        <h3><%= blog.title %></h3>
+        <img src="<%= blog.image %>">
+        <p><%= blog.created %></p>
+        <p> <%= blog.body%> <a href="/blogs/<%= blog.title %>" class="ui red">Read More</a></p>
+
+        
+    <% }) %>
+</div>
+
+<!-- 
+.slice(0, 100) +"... " 
+.substr(0, 100) +"..."
+.substring(0, 100) +"..." -->
+
+<%- include("partials/footer") %>
