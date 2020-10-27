@@ -36,7 +36,7 @@ app.get("/", (req, res)=>{
 app.get("/blogs", (req, res)=>{
     Blog.find({}, (err, blogs)=>{
         if(!err){
-            console.log(blogs[0])
+            
             res.render("index", {blogs : blogs}) 
         } else{
             console.log(err + " on site")
@@ -73,11 +73,13 @@ app.post("/blogs", (req, res )=>{
 //this route helps to show back the particlar data we click on the show page
 app.get("/blogs/:id", (req, res)=>{
     const parameterID = _.capitalize(req.params.id);
-    Blog.findOne({title : parameterID}, (err, blog)=>{
+    Blog.findOne({title : parameterID}, (err, vlog)=>{
         if(!err){
-            res.render("show", {blog : blog})
+            console.log(vlog)           
+            console.log("The show page parameterID === title")
+            res.render("show", {blog : vlog})      
         } else{
-            console.log(err)
+            console.log("error in the show page")
         }
     })
 })

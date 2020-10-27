@@ -2,20 +2,14 @@
 
 <!-- <h1>This is the testing site</h1> -->
 <div class="container  ui fall">
-    <% blogs.forEach((blog)=>{ %>
+    <% blogs.forEach((vlog)=>{ %>
         
-        <h3><%= blog.title %></h3>
-        <img src="<%= blog.image %>">
-        <p><%= blog.created %></p>
-        <p> <%= blog.body%> <a href="/blogs/<%= blog.title %>" class="ui red">Read More</a></p>
-
-        
+        <h3><%= vlog.title %></h3>
+        <img src="<%= vlog.image %>">
+        <p><%= vlog.created %></p>
+        <p> <%= vlog.body.substr(0, 100)%>...  <a href="/blogs/<%= vlog.title %>" class="ui red">Read More</a></p>        
     <% }) %>
 </div>
 
-<!-- 
-.slice(0, 100) +"... " 
-.substr(0, 100) +"..."
-.substring(0, 100) +"..." -->
 
 <%- include("partials/footer") %>
