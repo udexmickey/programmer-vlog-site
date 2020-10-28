@@ -2,16 +2,34 @@
 i.icon{
     font-size: 2em;
 }
-.ui.text.container {
-    margin: 7rem;
-}
-.fall{
-    margin: 5rem; 
+
+.fall, .ui.text.container{
+    margin: 8rem 0 4rem; 
  
 }
 input[type="checkbox"]{
     display: none;
+    cursor: pointer;
 }
 .mr{
     margin-right: 20px;
+}
+.cursor{
+    cursor: pointer;
+}
+.space{
+    padding: 1rem;
+}
+img{
+    width: 25rem;
+    height: 16em;
+}
+footer{
+    padding: 2rem;
+    color: rgb(214, 214, 214);
+    background-color: rgba(0, 0, 0, 5);
+}
+footer p{
+    margin: 0 auto;
+    text-align: center;
 }

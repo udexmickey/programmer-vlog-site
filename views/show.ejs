@@ -1,14 +1,14 @@
 <%- include("partials/header") %>
 
-<div class="container  ui fall">
+<div class="container ui main text segment fall">
     <form action="/blogs/delete" method="POST" class="item" >
         <h2><%= vlog.title %></h2>
         <img src="<%= vlog.image %>">
         <p><%= vlog.created %></p>
         <p><%= vlog.body %></p>
         <h4>
-            <a href="/blogs/delete"  class="mr"><label>Delete Post <input type="checkbox" name="checkbox" onChange="this.form.submit()" value="<%=vlog._id%>"></label></a>
-            <a href="/blogs/<%=vlog.title%>/edit" class="mr">Edit Post</a>
+            <a href="/blogs/delete"  class="mr item"><label class="cursor">Delete Post <input type="checkbox" name="checkbox" onChange="this.form.submit()" value="<%=vlog._id%>"></label></a>
+            <a href="/blogs/<%=vlog.title%>/edit" class="mr item">Edit Post</a>
         </h4>
         <input type="hidden" name="hiddenButton" value="<%= vlog %>"></input>
     </form>

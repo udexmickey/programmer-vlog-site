@@ -1,3 +1,5 @@
+const { countBy } = require("lodash");
+
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
@@ -36,7 +38,6 @@ app.get("/", (req, res)=>{
 app.get("/blogs", (req, res)=>{
     Blog.find({}, (err, blogs)=>{
         if(!err){
-            
             res.render("index", {blogs : blogs}) 
         } else{
             console.log(err + " on site")
