@@ -1,15 +1,39 @@
 <%- include("partials/header") %>
 
 <!-- <h1>This is the testing site</h1> -->
-<div class="container  ui fall">
+    
+<h1 class="header container ui main text segment fall"> <marquee behavior="row" direction="right"> Programmers Vlog</marquee></h1>
+<div class="container ui main text segment ">
+    
     <% blogs.forEach((vlog)=>{ %>
+        <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <a href="/blogs/<%= vlog.title %>"><img class="imageSize" src="<%= vlog.image %>"></a>
+              </div>
+              <div class="content">
+                <h3 class="header"><%= vlog.title %></h3>
+               
+                <div class="meta">
+                    <p><%= vlog.created.toDateString() %></p>
+                </div>
+                <div class="description">
+                    <p> <%= vlog.body.substr(0, 95)%>...</p> 
+                </div>
+                <div class="extra">
+                    <a href="/blogs/<%= vlog.title %>" class="ui blue basic button">Read More<i class="angle right icon"></i></a>      
+                </div>                
+              </div>
+            </div>
+            <hr>
+        </div>   
         
-        <h3><%= vlog.title %></h3>
-        <img src="<%= vlog.image %>">
-        <p><%= vlog.created %></p>
-        <p> <%= vlog.body.substr(0, 95)%>...  <a href="/blogs/<%= vlog.title %>" class="ui red">Read More</a></p>        
-    <% }) %>
+    <% }) %> 
+
+    
+
 </div>
+
 
 
 <%- include("partials/footer") %>

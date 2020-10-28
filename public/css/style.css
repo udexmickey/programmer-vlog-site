@@ -1,10 +1,10 @@
 
-i.icon{
-    font-size: 2em;
+i.code{
+    font-size: 1.6em;
 }
 
-.fall, .ui.text.container{
-    margin: 6rem 0 4rem; 
+.fall.ui.text.container{
+    margin: 6rem 0 2rem; 
  
 }
 input[type="checkbox"]{
@@ -20,10 +20,40 @@ input[type="checkbox"]{
 .space{
     padding: 0.4rem;
 }
-img{
-    width: 25rem;
-    height: 16em;
+img {
+    border-style: none;
+    width: 15rem;
+    height: 10rem;
 }
+.ui.items>.item>.image>img {
+    display: block;
+    width: 100%;
+    border-radius: .125rem;
+    border: none;
+    height: 13rem;
+    margin: 0;
+}
+.ui.items>.item>.content p:last-child {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.ui.button:not(.icon)>.right.icon:not(.button):not(.dropdown) {
+    margin: 0;
+    /* padding-right: 4px; */
+}
+.ui.button:not(.icon)>.icon:not(.button):not(.dropdown) {
+    margin: 0 ;
+    /* padding-right: 4px; */
+}
+@media only screen and (max-width: 767px){}
+.ui.items:not(.unstackable)>.item>.image, .ui.items:not(.unstackable)>.item>.image>img {
+    max-width: 100%!important;
+    width: auto!important;
+    max-height: 250px!important;
+    margin: 0;
+}
+
 footer{
     padding: 2rem;
     color: rgb(214, 214, 214);

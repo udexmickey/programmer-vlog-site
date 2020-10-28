@@ -33,6 +33,8 @@ var Blog = new mongoose.model("Blog", blogSchema);
 app.get("/", (req, res)=>{
     res.redirect("/blogs")  
 })
+
+//Read Route
 //This the index route
 app.get("/blogs", (req, res)=>{
     Blog.find({}, (err, blogs)=>{
@@ -48,6 +50,7 @@ app.get("/blogs/new", (req, res)=>{
     res.render("new")
 })
 
+//Create Route
 //this route helps to Post new particlar data 
 app.post("/blogs", (req, res )=>{
     const title = _.capitalize(req.body.title);
@@ -70,6 +73,7 @@ app.post("/blogs", (req, res )=>{
     })
 }) 
  
+//Read Route for single vlog post
 //this route helps to show back the particlar data we click on the show page
 app.get("/blogs/:id", (req, res)=>{
     const parameterID = _.capitalize(req.params.id);
@@ -96,6 +100,7 @@ app.get("/blogs/:id/edit", (req, res)=>{
     }) 
 })
 
+//Update Route
 // The PUT verbs route helps to edit and submit the editted post
 app.put("/blogs/:id", (req, res)=>{
 
@@ -118,9 +123,9 @@ app.put("/blogs/:id", (req, res)=>{
         }
     })
 })
- 
-// The Delete verbs route helps to delete the editted post and redirect back to the home routes
 
+//Delete Route
+// The Delete verbs route helps to delete the editted post and redirect back to the home routes
 app.delete("/blogs/:id", (req, res)=>{
     const parameterID = _.capitalize(req.params.id);
     Blog.findOneAndDelete({title : parameterID}, (err)=>{
