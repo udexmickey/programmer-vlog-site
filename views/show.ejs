@@ -1,10 +1,17 @@
 <%- include("partials/header") %>
-<div class="container  ui fall">
-    <h1>This is the vlog post <a href="/blogs/<%=blog.title%>/edit">Edit Post</a></h1> 
-    <h2><%= blog.title %></h2>
-    <img src="<%= blog.image %>">
-    <p><%= blog.created %></p>
-    <p><%= blog.body %></p>
-</div>
 
+<div class="container  ui fall">
+<form action="/blogs/delete" method="POST" class="item" >
+    <h2><%= vlog.title %></h2>
+           <img src="<%= vlog.image %>">
+           <p><%= vlog.created %></p>
+           <p><%= vlog.body %></p>
+           <h4>
+                <a href="/blogs/delete"  class="mr"><label>Delete Post <input type="checkbox" name="checkbox" onChange="this.form.submit()" value="<%=blog._id%>"></label></a>
+               <a href="/blogs/<%=vlog.title%>/edit" class="mr">Edit Post</a>
+           </h4>
+    <input type="hidden" name="hiddenButton" value="<%= blog %>"></input>
+</form>
+</div>
 <%- include("partials/footer") %>
+

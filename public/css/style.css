@@ -9,3 +9,9 @@ i.icon{
     margin: 5rem; 
  
 }
+input[type="checkbox"]{
+    display: none;
+}
+.mr{
+    margin-right: 20px;
+}

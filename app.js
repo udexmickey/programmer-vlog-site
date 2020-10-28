@@ -43,7 +43,7 @@ app.get("/blogs", (req, res)=>{
         }
     })
 });
-
+   
 app.get("/blogs/new", (req, res)=>{
     res.render("new")
 })
@@ -68,23 +68,22 @@ app.post("/blogs", (req, res )=>{
             console.log(err)
         }
     })
-})
+}) 
  
 //this route helps to show back the particlar data we click on the show page
 app.get("/blogs/:id", (req, res)=>{
     const parameterID = _.capitalize(req.params.id);
     Blog.findOne({title : parameterID}, (err, vlog)=>{
         if(!err){
-            console.log(vlog)           
-            console.log("The show page parameterID === title")
-            res.render("show", {blog : vlog})      
+            console.log("The show page " + vlog.title);
+            res.render("show", {vlog : vlog})      
         } else{
-            console.log("error in the show page")
+            console.log("error in the show page" + err)
         }
     })
 })
 
-//This route also helps to direct us to the form input of editing post
+//This route direct us to the form input of editing a post
 //this route helps to find back the particlar data we want to edit in the form
 app.get("/blogs/:id/edit", (req, res)=>{
     const parameterID = req.params.id;
@@ -101,25 +100,50 @@ app.get("/blogs/:id/edit", (req, res)=>{
 })
 
 //The PUT verbs route helps to edit and submit the editted post
-app.put("/blogs/:id", (req, res)=>{
-    const parameterID = _.capitalize(req.params.id);
-    const title = req.body.title;
-    const image = req.body.image;
-    const body  = req.body.body;
-    console.log("On the site")
+// app.put("/blogs/:id", (req, res)=>{
 
-    Blog.update({title : parameterID},
-        {title: title, image : image, body: body},
-        {overwrite : true}, (err, blog)=>{
-        if(!err){
-            console.log(blog)
-            res.redirect("/blogs/" + parameterID)
-        } else{
-            console.log("not available")
-        }
-    })
-})
+//     const parameterID = _.capitalize(req.params.id);
+//     const title = req.body.title;
+//     const image = req.body.image;
+//     const body  = req.body.body;
+//     console.log("On the site")
  
+//     Blog.update({title : parameterID},
+//         {title: title, image : image, body: body},
+//         {overwrite : true}, (err, blog)=>{
+//         if(!err){
+//             console.log(blog)
+//             res.redirect("/blogs/" + parameterID)
+//         } else{
+//             console.log("not available")
+//         }
+//     })
+// })
+ 
+// app.delete("/blogs/:id", (req, res)=>{
+//     const parameterID = _.capitalize(req.params.id);
+//     Blog.deleteOne({title : parameterID}, (err)=>{
+//         if(!err){
+//             console.log("Delete post")
+//             res.redirect("/blogs")
+//         } else {
+//             console.log("Can't delete post")
+//         }
+//     })
+// })
+
+app.post("/blogs/delete", (req, res)=>{
+    const  checkboxId = req.body.checkbox;
+    const  hiddenButton = req.body.hiddenButton
+
+    if(hiddenButton){
+        Blog.findByIdAndRemove(checkboxId, (err)=>{
+            if(checkboxId){
+                res.redirect("/");
+            }  
+        }) 
+    }
+})
 // Localhost is on PORT  8000;
 var PORT = 3000;
 app.listen(PORT, (err)=>{
