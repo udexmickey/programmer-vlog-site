@@ -118,30 +118,24 @@ app.put("/blogs/:id", (req, res)=>{
         }
     })
 })
-   
-// app.delete("/blogs/:id", (req, res)=>{
-//     const parameterID = _.capitalize(req.params.id);
-//     Blog.deleteOne({title : parameterID}, (err)=>{
-//         if(!err){
-//             console.log("Delete post")
-//             res.redirect("/blogs")
-//         } else {
-//             console.log("Can't delete post")
-//         }
-//     })
-// })
+ 
+// The Delete verbs route helps to delete the editted post and redirect back to the home routes
 
-app.post("/blogs/delete", (req, res)=>{
-    const  checkboxId = req.body.checkbox;
-    const  hiddenButton = req.body.hiddenButton
+app.delete("/blogs/:id", (req, res)=>{
+    const parameterID = _.capitalize(req.params.id);
+    Blog.findOneAndDelete({title : parameterID}, (err)=>{
+        if(!err){
+            console.log("Delete post")
+            res.redirect("/blogs")
+        } else {
+            console.log("Can't delete post")
+        }
+    })
+})
 
-    if(hiddenButton){
-        Blog.findByIdAndRemove(checkboxId, (err)=>{
-            if(checkboxId){
-                res.redirect("/");
-            }  
-        }) 
-    } 
+
+app.get("*", (req, res)=>{
+    res.send("Sorry page not now")
 })
 // Localhost is on PORT  8000;
 var PORT = 3000;
