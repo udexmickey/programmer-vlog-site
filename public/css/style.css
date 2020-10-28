@@ -7,6 +7,10 @@ i.code{
     margin: 6rem 0 2rem; 
  
 }
+.extrameta{
+    color: rgb(160, 160, 160);
+    font-size: 12px;
+}
 input[type="checkbox"]{
     display: none;
     cursor: pointer;

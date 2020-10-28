@@ -4,7 +4,7 @@
     <form action="/blogs/<%= vlog.title %>?_method=DELETE" method="POST" class="item" >
         <h2><%= vlog.title %></h2>
         <img src="<%= vlog.image %>">
-        <p><%= vlog.created %></p>
+        <p class="extrameta"><%= vlog.created.toDateString() %></p>
         <p><%= vlog.body %></p>
         <h4>
             <a href="/blogs/delete"><label>
