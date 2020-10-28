@@ -7,8 +7,10 @@
         <p><%= vlog.created %></p>
         <p><%= vlog.body %></p>
         <h4>
-            <a href="/blogs/delete"  class="mr item"><label class="cursor">Delete Post <input type="checkbox" name="checkbox" onChange="this.form.submit()" value="<%=vlog._id%>"></label></a>
-            <a href="/blogs/<%=vlog.title%>/edit" class="mr item">Edit Post</a>
+            <a href="/blogs/delete"  class="mr ui blue basic button item"><label class="cursor">Delete Post 
+                <input type="checkbox" name="checkbox" onChange="this.form.submit()" value="<%=vlog._id%>"></label>
+            </a>
+            <a href="/blogs/<%=vlog.title%>/edit" class="mr ui blue basic button item">Edit Post</a>
         </h4>
         <input type="hidden" name="hiddenButton" value="<%= vlog %>"></input>
     </form>

@@ -1,19 +1,18 @@
-const { countBy } = require("lodash");
 
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
     _           = require("lodash")
-    // methodOverride =  require("method-override")
+    methodOverride =  require("method-override")
 
 //App config connecting to mongoose     
-mongoose.connect("mongodb://localhost:27017/restful_blog_app",  {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb://localhost:27017/restful_blog_app",  {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-// app.use(methodOverride("_method"))
+app.use(methodOverride("_method"))
 
 // Mongoose  schema/model config
 var blogSchema = new mongoose.Schema({
@@ -76,7 +75,6 @@ app.get("/blogs/:id", (req, res)=>{
     const parameterID = _.capitalize(req.params.id);
     Blog.findOne({title : parameterID}, (err, vlog)=>{
         if(!err){
-            console.log("The show page " + vlog.title);
             res.render("show", {vlog : vlog})      
         } else{
             console.log("error in the show page" + err)
@@ -90,9 +88,7 @@ app.get("/blogs/:id/edit", (req, res)=>{
     const parameterID = req.params.id;
 
     Blog.findOne({title: parameterID}, (err, foundBlog)=>{
-        console.log("the edit site")
         if(!err){
-            console.log(foundBlog.title)
             res.render("edit", {blog: foundBlog})
         } else{
             res.send(err);
@@ -100,27 +96,29 @@ app.get("/blogs/:id/edit", (req, res)=>{
     }) 
 })
 
-//The PUT verbs route helps to edit and submit the editted post
-// app.put("/blogs/:id", (req, res)=>{
+// The PUT verbs route helps to edit and submit the editted post
+app.put("/blogs/:id", (req, res)=>{
 
-//     const parameterID = _.capitalize(req.params.id);
-//     const title = req.body.title;
-//     const image = req.body.image;
-//     const body  = req.body.body;
-//     console.log("On the site")
+    const parameterID = _.capitalize(req.params.id);
+    const title = _.capitalize(req.body.title);
+    const image = req.body.image;
+    const body  = req.body.body;
  
-//     Blog.update({title : parameterID},
-//         {title: title, image : image, body: body},
-//         {overwrite : true}, (err, blog)=>{
-//         if(!err){
-//             console.log(blog)
-//             res.redirect("/blogs/" + parameterID)
-//         } else{
-//             console.log("not available")
-//         }
-//     })
-// })
- 
+    Blog.findOneAndUpdate({title : parameterID},
+        {title: title, image : image, body: body},
+        {overwrite : true}, (err, blog)=>{
+            console.log("update Still in process")
+        if(!err){
+            console.log("updated!!!")
+            res.redirect("/blogs/" + title)
+        } else{
+            console.log("not available")
+            console.log(err)
+            res.redirect("/blogs") 
+        }
+    })
+})
+   
 // app.delete("/blogs/:id", (req, res)=>{
 //     const parameterID = _.capitalize(req.params.id);
 //     Blog.deleteOne({title : parameterID}, (err)=>{

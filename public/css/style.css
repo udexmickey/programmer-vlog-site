@@ -4,7 +4,7 @@ i.icon{
 }
 
 .fall, .ui.text.container{
-    margin: 8rem 0 4rem; 
+    margin: 6rem 0 4rem; 
  
 }
 input[type="checkbox"]{
@@ -18,7 +18,7 @@ input[type="checkbox"]{
     cursor: pointer;
 }
 .space{
-    padding: 1rem;
+    padding: 0.4rem;
 }
 img{
     width: 25rem;
