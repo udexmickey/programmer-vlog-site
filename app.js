@@ -142,7 +142,7 @@ app.post("/blogs/delete", (req, res)=>{
                 res.redirect("/");
             }  
         }) 
-    }
+    } 
 })
 // Localhost is on PORT  8000;
 var PORT = 3000;
