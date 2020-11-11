@@ -15,6 +15,10 @@
     "express-sanitizer": "^1.0.5",
     "lodash": "^4.17.20",
     "method-override": "^3.0.0",
-    "mongoose": "^5.10.8"
+    "mongoose": "^5.10.8",
+    "mongoose-type-url": "^2.1.0",
+    "passport": "^0.4.1",
+    "validate.js": "^0.13.1",
+    "validates": "^1.0.1"
   }
 }

@@ -2,27 +2,29 @@
 
 <!-- <h1>This is the testing site</h1> -->
 <!-- <div class="jumbotron container-fluid">   -->
-<h1 class="header container ui main text segment fall"> <marquee behavior="500ms" direction="left"> Programmers Vlog / mike \ dimgba | develop</marquee></h1>
+<h1 class="jumbotron header black container ui main text segment fall"> 
+    <marquee style="letter-spacing: 3px; word-spacing: 50px;" behavior="500ms" direction="left"> Programmers &ThickSpace; | &ThickSpace; Developers &ThickSpace; | &ThickSpace; Blog &ThickSpace; | &ThickSpace; Vlog  &ThickSpace; | &ThickSpace; Post</marquee>
+</h1>
 
 <div class="container ui main text segment ">
     
-    <% blogs.forEach((vlog)=>{ %>
+    <% blogs.forEach((blog)=>{ %>
         <div class="ui items">
             <div class="item">
               <div class="image">
-                <a href="/blogs/<%= vlog.title %>"><img class="imageSize" src="<%= vlog.image %>"></a>
+                <a href="/blogs/<%= blog._id%>"><img class="imageSize" src="<%= blog.image %>"></a>
               </div>
               <div class="content">
-                <h3 class="header"><%= vlog.title %></h3>
+                <h3 class="header"><%= blog.title %></h3>
                
                 <div class="meta">
-                    <p><%= vlog.created.toDateString() %></p>
+                    <p><%= blog.created.toDateString() %></p>
                 </div>
                 <div class="description">
-                    <p> <%= vlog.body.substr(0, 95)%>...</p> 
+                    <p> <%= blog.body.substr(0, 95)%>...</p> 
                 </div>
                 <div class="extra">
-                    <a href="/blogs/<%= vlog.title %>" class="ui blue basic button">Read More<i class="angle right icon"></i></a>      
+                    <a href="/blogs/<%= blog._id %>" class="ui blue basic button">Read More<i class="angle right icon"></i></a>      
                 </div>                
               </div>
             </div>
