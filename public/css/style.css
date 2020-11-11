@@ -1,13 +1,25 @@
 
+body{
+    background: #b5e4f8;
+    height: 0;
+}
 i.code{
     font-size: 1.6em;
 }
 .header{
     text-transform: capitalize;
 }
+.container.ui.show.fall{
+    position: relative;
+    bottom: 0;
+    margin: 6rem 0 10rem;
+    height: min-content; 
+    box-shadow: 3px 3px 1px 2px rgb(238, 238, 238, 5);
+}
+
 .fall.ui.text.container{
-    margin: 6rem 0 2rem; 
-    box-shadow: 2px 1px 1px 2px rgb(238, 238, 238, 5);
+    margin: 6rem 0 3rem; 
+    box-shadow: 2px 1px 1px 2px rgb(160, 158, 158);
 }
 .extrameta{
     color: rgb(160, 160, 160);
@@ -64,6 +76,7 @@ footer{
     padding: 2rem;
     color: rgb(214, 214, 214);
     background-color: rgba(0, 0, 0, 5);
+    width: 100%;    
 }
 footer p{
     margin: 0 auto;

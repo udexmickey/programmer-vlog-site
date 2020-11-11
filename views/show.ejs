@@ -1,6 +1,6 @@
 <%- include("partials/header") %>
 
-<div class="container ui main text segment fall">
+<div class="container ui main text segment fall show">
     <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST" class="item" >
         <h2 class="header"><%= blog.title %></h2>
         <img src="<%= blog.image %>">
