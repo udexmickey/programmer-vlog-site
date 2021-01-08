@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap');
 
 body{
-    background: #b5e4f8;
+    background: rgba(83, 147, 158, 0.918);
     height: 0;
+    font-family: "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 i.code{
     font-size: 1.6em;
@@ -72,6 +74,33 @@ img {
     margin: 0;
 }
 
+@media only screen and (max-width: 1025px){
+    .ui.container {
+        width: 100%!important;
+        margin-left: 0!important; 
+        margin-right: 0!important;
+        box-sizing: border-box;
+    }
+
+    .ui.text.container {
+        font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+        max-width: 100%!important;
+        line-height: 1.5;
+    }
+}
+
+
+/* @media (min-width: 1040px){
+
+    body{
+        margin: 0;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .container.ui.show.fall{
+        width: 100%;
+    }
+} */
 footer{
     padding: 2rem;
     color: rgb(214, 214, 214);
